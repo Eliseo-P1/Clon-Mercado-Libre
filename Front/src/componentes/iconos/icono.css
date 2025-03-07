@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+a{
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+}
+.icono{
+    height: 134.8px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
