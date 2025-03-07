@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.punto{
+    width: 6px;
+    height: 6px;
+    background-color: var(--andes-color-blue-500,#3483fa);
+    border-radius: 50%;
+}
+

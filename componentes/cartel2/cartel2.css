@@ -1,0 +1,28 @@
+*{box-sizing: border-box;
+padding:0;
+margin: 0;}
+
+
+.cartel2{
+    width: 284px;
+    height: 288px;
+    display: flex;
+    flex-direction: column;
+    border-radius:6px;
+    margin: 100px;
+    overflow: hidden;
+}
+.box-titulo{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+h3{
+    font-size: 15px;
+    color:#5e5c5c;
+    font-weight: 700;
+}
+
+

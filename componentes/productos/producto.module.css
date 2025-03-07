@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;  
+  font-size: 13px;
+  margin: 0;
+}
+.stock{
+    width: 141.5px;
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    gap: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.precioAnterior{
+    font-size:10px;
+    color:#8b8b8b;
+}
+.precio{
+    display: flex;
+    gap: 10px;
+}
+img{
+    width: 139.5px;
+    align-self: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.envio{
+    color: green;
+}
