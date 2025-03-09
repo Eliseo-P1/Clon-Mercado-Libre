@@ -13,7 +13,7 @@ const puerto = process.env.PORT || 3000;
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:3000', // O puedes usar '*' para permitir cualquier origen
+  origin: '*', // O puedes usar '*' para permitir cualquier origen
   methods: ['GET', 'POST'], // Si es necesario, agrega más métodos permitidos
   allowedHeaders: ['Content-Type'] // Los encabezados permitidos
 }));
