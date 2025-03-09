@@ -13,7 +13,7 @@ app.get('/prueba', async (req, res) => {
   try {
     const [usuarios] = await pool.query('SELECT * FROM usuario');  
     console.log(usuarios);
-    return res.json({ respuesta: usuarios });
+    return res.json(usuarios);
   } catch (error) {
     console.error("Error en la consulta:", error);
     return res.status(500).json({ error: "Error en el servidor" });
