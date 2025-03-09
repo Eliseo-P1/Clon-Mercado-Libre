@@ -12,10 +12,10 @@ export const loginUsuarioPrimero = async (req,res) =>{
         const paisActual = await localizador();
         const usuario = resultado[0];
 
-            console.log(email,paisActual,usuario)
         if(usuario.pais === paisActual){
             return res.status(202)
         }
+    
         return res.status(404).json( {ubicacion : paisActual})
 
     }catch(err){
