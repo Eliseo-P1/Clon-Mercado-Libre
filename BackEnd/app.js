@@ -12,11 +12,7 @@ dotenv.config();
 const puerto = process.env.PORT || 3000;
 
 const app = express();
-app.use(cors({
-  origin: '*', // O puedes usar '*' para permitir cualquier origen
-  methods: ['GET', 'POST'], // Si es necesario, agrega más métodos permitidos
-  allowedHeaders: ['Content-Type'] // Los encabezados permitidos
-}));
+app.use(cors());
 app.post('/prueba',loginUsuarioPrimero);
 
 app.listen(puerto, () => {
