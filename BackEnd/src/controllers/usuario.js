@@ -3,7 +3,7 @@ import { localizador } from '../helpers/ubicacion.js';
 
 
 export const loginUsuarioPrimero = async (req,res) =>{
-    const {email} = req.params
+    const {email} = req.body
     try{
         const [resultado] = await pool.query('SELECT * FROM usuario WHERE email = ? ',[email]);
         if(resultado.length === 0){
@@ -12,6 +12,7 @@ export const loginUsuarioPrimero = async (req,res) =>{
         const paisActual = await localizador();
         const usuario = resultado[0];
 
+            console.log(email,paisActual,usuario)
         if(usuario.pais === paisActual){
             return res.status(202)
         }
