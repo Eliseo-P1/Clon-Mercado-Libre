@@ -4,18 +4,23 @@ import { localizador } from '../helpers/ubicacion.js';
 
 export const loginUsuarioPrimero = async (req,res) =>{
     const {email} = req.body
+    console.log(email)
     try{
         const [resultado] = await pool.query('SELECT * FROM usuario WHERE email = ? ',[email]);
         if(resultado.length === 0){
+             console.log('esta mal')
             return res.status(404).json({mensaje:'Revisa el dato que ingresaste'})
+           
         }
         const paisActual = await localizador();
         const usuario = resultado[0];
 
         if(usuario.pais === paisActual){
+            console.log(email)
             return res.status(202)
+
         }
-    
+        console.log('mi pais')
         return res.status(404).json( {ubicacion : paisActual})
 
     }catch(err){
