@@ -11,13 +11,13 @@ const input2 = useRef()
 
 
 
-const primerSiguiente2 = async ()=>{
+const primerSiguiente = async ()=>{
 
     const valor = input1.current.value;
     emailValor.current = valor;
 
     try{
-        const respuesta = await fetch('enviarEmail', {
+        const respuesta = await fetch('https://clon-mercado-libre-production.up.railway.app/prueba', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
@@ -36,9 +36,6 @@ const primerSiguiente2 = async ()=>{
 
 }
 
-const primerSiguiente= () =>{
-    setError('hubo un error en el ingreso')
-}
 const entrarLogin=()=>{
 
 }

@@ -2,7 +2,7 @@ import pool from '../configuracion/db.js'
 import { localizador } from '../helpers/ubicacion.js';
 
 
-const loginUsuarioPrimero = async (req,res) =>{
+export const loginUsuarioPrimero = async (req,res) =>{
     const {email} = req.params
     try{
         const [resultado] = await pool.query('SELECT * FROM usuario WHERE email = ? ',[email]);
