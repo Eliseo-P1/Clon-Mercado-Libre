@@ -4,7 +4,6 @@ import loginStyle from './login.module.css';
 
 export default function Login(){
 const [etapa,setEtapa] = useState(1);
-const [error,setError] = useState()
 const emailValor = useRef()
 const input1 = useRef()
 const input2 = useRef() 
@@ -24,11 +23,9 @@ const primerSiguiente = async ()=>{
             },
             body: JSON.stringify({ email: valor })
         })
-        
+
         if(respuesta.ok){
             setEtapa(2)
-        }else{
-            setError(data.mensaje)
         }
     }catch(err){
         console.error('hubo un error',err)
@@ -63,7 +60,7 @@ const entrarLogin=()=>{
                                 <div className={loginStyle.botones}>
                                 <label >E-mail o telefono</label>
                                 <input type="text" ref={input1}/>
-                                {error && <p style={{color:'red'}}>{error}</p>}
+                                
                                 </div>
                                 
                                 <button onClick={primerSiguiente}>Continuar</button>
