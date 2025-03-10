@@ -10,7 +10,7 @@ const input2 = useRef()
 
 
 
-const primerSiguiente2 = async ()=>{
+const primerSiguiente = async ()=>{
 
     const valor = input1.current.value;
     emailValor.current = valor;
@@ -32,11 +32,12 @@ const primerSiguiente2 = async ()=>{
     }
 
 }
-const primerSiguiente = async()=>{
+const primerSiguiente2 = async()=>{
 
     try{
         const respuesta = await fetch('https://clon-mercado-libre-production.up.railway.app/prueba');
-        console.log(respuesta)
+        const datos = await respuesta.json();
+        console.log(datos)
     }catch(err){
         console.log(err)
     }
