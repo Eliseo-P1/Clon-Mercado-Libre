@@ -18,6 +18,7 @@ const primerSiguiente = async ()=>{
     try{
         const respuesta = await fetch('https://clon-mercado-libre-production.up.railway.app/prueba', {
             method: 'POST', 
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
