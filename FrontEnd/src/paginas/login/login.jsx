@@ -24,8 +24,9 @@ const primerSiguiente = async ()=>{
             },
             body: JSON.stringify({ email: valor })
         })
-
+        const informacion = await respuesta.json()
         if(respuesta.ok){
+            console.log(informacion.mensaje)
             setEtapa(2)
         }
     }catch(err){

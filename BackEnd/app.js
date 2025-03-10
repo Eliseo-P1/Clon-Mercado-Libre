@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import {loginUsuarioPrimero} from './src/controllers/usuario.js'
 const puerto = process.env.PORT || 3000;
 
 dotenv.config();
@@ -17,9 +18,7 @@ app.use(cors({
 app.use(express.json());
 
 // 🔹 Ruta de prueba
-app.post('/prueba', (req, res) => {
-    res.json({ mensaje: "CORS funcionando correctamente" });
-});
+app.post('/prueba',loginUsuarioPrimero)
 app.listen(puerto, () => {
   console.log('Servidor escuchando en el puerto', puerto);
 });

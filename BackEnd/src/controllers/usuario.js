@@ -1,5 +1,5 @@
 import pool from '../configuracion/db.js'
-import { localizador } from '../helpers/ubicacion.js';
+
 
 
 export const loginUsuarioPrimero = async (req,res) =>{
@@ -12,16 +12,9 @@ export const loginUsuarioPrimero = async (req,res) =>{
             return res.status(404).json({mensaje:'Revisa el dato que ingresaste'})
            
         }
-        const paisActual = await localizador();
+      
         const usuario = resultado[0];
-
-        if(usuario.pais === paisActual){
-            console.log(email)
-            return res.status(202)
-
-        }
-        console.log('mi pais')
-        return res.status(404).json( {ubicacion : paisActual})
+        return res.status(200).json({mensaje:'usuario correcto'})
 
     }catch(err){
         console.error('hubo un problema interno',err)
