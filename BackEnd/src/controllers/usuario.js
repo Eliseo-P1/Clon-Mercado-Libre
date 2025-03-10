@@ -15,7 +15,7 @@ export const loginUsuarioPrimero = async (req,res) =>{
         }
       
         const paisActual = await localizador();
-        if('United States' === paisActual){
+        if(resultado.pais === paisActual){
             console.log(paisActual);
             console.log(email);
             console.log(resultado)
