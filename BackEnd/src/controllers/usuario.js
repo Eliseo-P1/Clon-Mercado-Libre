@@ -8,7 +8,8 @@ export const loginUsuarioPrimero = async (req,res) =>{
     try{
         const [resultado] = await pool.query('SELECT * FROM usuario WHERE email = ? ',[email]);
         if(resultado.length === 0){
-             console.log('esta mal')
+             console.log(resultado.length)
+             console.log(resultado)
             return res.status(404).json({mensaje:'Revisa el dato que ingresaste'})
            
         }
