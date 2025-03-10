@@ -39,3 +39,14 @@ const loginUsuarioSegundo = async(req,res) =>{
 
     console.log(usuario)
 }
+
+export const testeo = async (req,res)=>{
+
+    try{
+        const [respuesta] = await pool.query('SELECT * FROM usuario')
+        
+        return res.status(202).json(respuesta)
+    }catch(err){
+        return res.status(404).json(err)
+    }
+}
