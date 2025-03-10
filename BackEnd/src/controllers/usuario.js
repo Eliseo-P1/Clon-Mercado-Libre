@@ -10,12 +10,15 @@ export const loginUsuarioPrimero = async (req,res) =>{
         const [resultado] = await pool.query('SELECT * FROM usuario WHERE email = ? ',[email]);
 
         if(resultado.length === 0){
+            console.log("no hay nada")
             return res.status(404).json({mensaje:'Revisa el dato que ingresaste'})  
         }
       
         const paisActual = await localizador();
         if('United States' === resultado.pais){
             console.log(paisActual);
+            console.log(email);
+            console.log(resultado)
             return res.status(200).json({mensaje:'usuario correcto'})
         }
 
