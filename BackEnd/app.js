@@ -8,7 +8,14 @@ dotenv.config();
 const puerto = process.env.PORT || 3000;
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: 'http://localhost:3000', // Permitir solo este origen (o usa '*' para permitir todos)
+  methods: ['GET', 'POST'], // Métodos HTTP permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // Headers permitidos
+}));
+
+
 app.post('/prueba',loginUsuarioPrimero);
 
 app.listen(puerto, () => {
