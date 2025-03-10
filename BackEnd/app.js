@@ -1,23 +1,24 @@
 import express from 'express';
 import cors from 'cors';
-import { loginUsuarioPrimero ,testeo} from './src/controllers/usuario.js';
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
-dotenv.config(); 
-
-const puerto = process.env.PORT || 3000;
+dotenv.config();
 
 const app = express();
 
+// ✅ Habilita CORS para todas las solicitudes
 app.use(cors({
-  origin: 'http://localhost:3000', // Permitir solo este origen (o usa '*' para permitir todos)
-  methods: ['GET', 'POST'], // Métodos HTTP permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Headers permitidos
+    origin: '*', // Puedes cambiar '*' por 'http://localhost:3000' o tu dominio
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+app.use(express.json());
 
-app.post('/prueba',loginUsuarioPrimero);
-
+// 🔹 Ruta de prueba
+app.post('/prueba', (req, res) => {
+    res.json({ mensaje: "CORS funcionando correctamente" });
+});
 app.listen(puerto, () => {
   console.log('Servidor escuchando en el puerto', puerto);
 });
