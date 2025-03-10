@@ -9,7 +9,7 @@ const puerto = process.env.PORT || 3000;
 
 const app = express();
 app.use(cors());
-app.get('/prueba',loginUsuarioPrimero);
+app.post('/prueba',loginUsuarioPrimero);
 
 app.listen(puerto, () => {
   console.log('Servidor escuchando en el puerto', puerto);
