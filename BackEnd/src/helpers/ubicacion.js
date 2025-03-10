@@ -1,7 +1,7 @@
 import { response } from "express";
 
 
-export const localizador = () => {
+export const localizador = async () => {
     return fetch('https://ip-api.com/json/')
         .then(response => response.json()) // Convertimos la respuesta a JSON
         .then(data => data.country) // Retornamos solo el país
