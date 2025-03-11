@@ -10,21 +10,16 @@ export const loginUsuarioPrimero = async (req,res) =>{
         const [resultado] = await pool.query('SELECT * FROM usuario WHERE email = ? ',[email]);
 
         if(resultado.length === 0){
-            console.log("no hay nada")
             return res.status(404).json({mensaje:'Revisa el dato que ingresaste'})  
         }
       
         const paisActual = await localizador();
         if(resultado.pais === paisActual){
-            console.log(paisActual);
-            console.log(email);
-            console.log(resultado)
             return res.status(200).json({mensaje:'usuario correcto'})
         }
 
         return res.status(404).json({ubicacion:paisActual});
-        
-
+    
     }catch(err){
         console.error('hubo un problema interno',err)
         return res.status(502).json({mensaje:err})
@@ -32,18 +27,22 @@ export const loginUsuarioPrimero = async (req,res) =>{
 }
 
 
-
-
-
-
-const loginUsuarioSegundo = async(req,res) =>{
+export const loginUsuarioSegundo = async(req,res) =>{
     const {email,contraseña} = req.body;
+try{
 
-    const [respuesta]  = 
-                pool.query('SELECT email,constraseña,id_usuario FROM usuario WHERE email=? AND contraseña=?',[email,contraseña]);
 
-    const usuario = respuesta[0];
+    const [respuesta]  = await
+                pool.query('SELECT email,contraseña,id_usuario FROM usuario WHERE email=? AND contraseña=?',[email,contraseña]);
 
-    console.log(usuario)
+    if(respuesta.length === 0){
+        return res.status(404).json({mensaje: 'Revisa tu contraseña.'})
+    }
+
+    return res.status(202).json({mensaje:'iniciando sesion'});
+}catch(err){
+    console.log(err)
+    return res.status(502).json(err)
+}
 }
 

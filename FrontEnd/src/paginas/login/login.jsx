@@ -4,6 +4,7 @@ import loginStyle from './login.module.css';
 
 export default function Login(){
 const [etapa,setEtapa] = useState(1);
+const [error,setError] = useState();
 const emailValor = useRef()
 const input1 = useRef()
 const input2 = useRef() 
@@ -12,11 +13,11 @@ const input2 = useRef()
 
 const primerSiguiente = async ()=>{
 
-    const valor = input1.current.value;
-    emailValor.current = valor;
+    const email = input1.current.value;
+    emailValor.current = email;
 
     try{
-        const respuesta = await fetch('https://clon-mercado-libre-production.up.railway.app/prueba', {
+        const respuesta = await fetch('https://clon-mercado-libre-production.up.railway.app/login', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
@@ -24,29 +25,40 @@ const primerSiguiente = async ()=>{
             body: JSON.stringify({ email: valor })
         })
         const informacion = await respuesta.json()
+
         if(respuesta.ok){
-            console.log(informacion.mensaje)
             setEtapa(2)
         }
+        setError(informacion.mensaje);
+
     }catch(err){
         console.error('hubo un error',err)
     }
 
 }
-const primerSiguiente2 = async()=>{
+
+const entrarLogin = async ()=>{
 
     try{
-        const respuesta = await fetch('https://clon-mercado-libre-production.up.railway.app/prueba');
-        const datos = await respuesta.json();
-        console.log(datos)
+        const response = await fetch('https://clon-mercado-libre-production.up.railway.app/login2',{
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({email:emailValor,
+                                 password: input2.current.value})
+        });
+
+        const informacion = await response.json()
+
+        if(response.ok){
+            console.log('iniciando sesion... espere porfavor');
+        }
+        setError(informacion);
+
     }catch(err){
-        console.log(err)
+        console.log('hubo un error :', err);
     }
-
-}
-
-const entrarLogin=()=>{
-
 }
     return(
             <>
@@ -72,7 +84,7 @@ const entrarLogin=()=>{
                                 <div className={loginStyle.botones}>
                                 <label >E-mail o telefono</label>
                                 <input type="text" ref={input1}/>
-                                
+                                {error && <p style={{color:'red'}}>{error}</p>}
                                 </div>
                                 
                                 <button onClick={primerSiguiente}>Continuar</button>
@@ -98,6 +110,7 @@ const entrarLogin=()=>{
                             <div >
                             <label >Contraseña</label>
                             <input type="password" ref={input2}/>
+                            {error && <p style={{color:'red'}}>{error}</p>}
                             </div>
 
                             <div className="botones" style={{display:'flex' ,gap:'10px'}}>

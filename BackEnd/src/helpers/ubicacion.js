@@ -8,7 +8,7 @@ export const localizador = async () => {
 
         const data = await response.json();
         console.log('País:', data.country_name); 
-        return data.country; // Devuelve el país
+        return data.country; 
     } catch (err) {
         console.error('Error al obtener el país:', err);
         return 'Desconocido'; 

@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import {loginUsuarioPrimero} from './src/controllers/usuario.js'
+import {loginUsuarioPrimero , loginUsuarioSegundo} from './src/controllers/usuario.js'
 const puerto = process.env.PORT || 3000;
 import { localizador } from './src/helpers/ubicacion.js';
 dotenv.config();
@@ -18,7 +18,9 @@ app.use(cors({
 app.use(express.json());
 
 
-app.post('/prueba',loginUsuarioPrimero)
+app.post('/login',loginUsuarioPrimero);
+app.post('/login2',loginUsuarioSegundo);
+
 
 app.get('/pais',localizador)
 
