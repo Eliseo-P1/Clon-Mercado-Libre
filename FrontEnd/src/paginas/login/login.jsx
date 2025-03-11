@@ -56,7 +56,7 @@ const entrarLogin = async ()=>{
         }
         setError(informacion);
 
-    }catch(err){
+    }catch(err){    
         console.log('hubo un error :', err);
     }
 }

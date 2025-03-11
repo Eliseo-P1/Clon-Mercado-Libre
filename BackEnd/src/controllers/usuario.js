@@ -28,12 +28,12 @@ export const loginUsuarioPrimero = async (req,res) =>{
 
 
 export const loginUsuarioSegundo = async(req,res) =>{
-    const {email,contraseña} = req.body;
+    const {email,password} = req.body;
 try{
 
 
     const [respuesta]  = await
-                pool.query('SELECT email,password,id_usuario FROM usuario WHERE email=? AND password=?',[email,contraseña]);
+                pool.query('SELECT email,password,id_usuario FROM usuario WHERE email=? AND password=?',[email,password]);
 
     if(respuesta.length === 0){
         return res.status(404).json({mensaje: 'Revisa tu contraseña.'})
