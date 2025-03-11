@@ -36,6 +36,7 @@ try{
                 pool.query('SELECT email,password,id_usuario FROM usuario WHERE email=? AND password=?',[email,password]);
 
     if(respuesta.length === 0){
+        console.log(email,password)
         return res.status(404).json({mensaje: 'Revisa tu contraseña.'})
     }
 

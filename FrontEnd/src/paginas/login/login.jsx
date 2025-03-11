@@ -45,7 +45,7 @@ const entrarLogin = async ()=>{
             headers:{
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify({email:emailValor,
+            body: JSON.stringify({email:emailValor.current.value,
                                  password: input2.current.value})
         });
 
@@ -84,7 +84,7 @@ const entrarLogin = async ()=>{
                                 <div className={loginStyle.botones}>
                                 <label >E-mail o telefono</label>
                                 <input type="text" ref={input1}/>
-                                {error && <p style={{color:'red'}}>{error}</p>}
+                                {error && <p style={{color:'red'}}>{error.mensaje}</p>}
                                 </div>
                                 
                                 <button onClick={primerSiguiente}>Continuar</button>
@@ -110,7 +110,7 @@ const entrarLogin = async ()=>{
                             <div >
                             <label >Contraseña</label>
                             <input type="password" ref={input2}/>
-                            {error && <p style={{color:'red'}}>{error}</p>}
+                            {error && <p style={{color:'red'}}>{error.mensaje}</p>}
                             </div>
 
                             <div className="botones" style={{display:'flex' ,gap:'10px'}}>
