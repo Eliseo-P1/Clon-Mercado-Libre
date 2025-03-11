@@ -33,7 +33,7 @@ try{
 
 
     const [respuesta]  = await
-                pool.query('SELECT email,contraseña,id_usuario FROM usuario WHERE email=? AND contraseña=?',[email,contraseña]);
+                pool.query('SELECT email,password,id_usuario FROM usuario WHERE email=? AND contraseña=?',[email,contraseña]);
 
     if(respuesta.length === 0){
         return res.status(404).json({mensaje: 'Revisa tu contraseña.'})

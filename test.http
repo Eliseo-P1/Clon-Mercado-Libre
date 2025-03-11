@@ -1,7 +1,8 @@
-POST https://clon-mercado-libre-production.up.railway.app/prueba
+POST https://clon-mercado-libre-production.up.railway.app/login2
 Content-Type: application/json
 
 {
   
-  "email": "epaniagua@frba.utn.edu.ar"
+  "email": "epaniagua@frba.utn.edu.ar",
+  "contraseña":"2qh1tqvtxn"
 }   

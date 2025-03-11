@@ -22,7 +22,7 @@ const primerSiguiente = async ()=>{
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: valor })
+            body: JSON.stringify({ email: email})
         })
         const informacion = await respuesta.json()
 
