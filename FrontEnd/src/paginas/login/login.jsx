@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import loginStyle from './login.module.css';
 
 
@@ -45,7 +45,7 @@ const entrarLogin = async ()=>{
             headers:{
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify({email:emailValor.current.value,
+            body: JSON.stringify({email:emailValor.current,
                                  password: input2.current.value})
         });
 
@@ -60,6 +60,12 @@ const entrarLogin = async ()=>{
         console.log('hubo un error :', err);
     }
 }
+
+useEffect(() => {
+    setError(null);
+}, [etapa]);
+
+
     return(
             <>
                 <div className={loginStyle.login}>
