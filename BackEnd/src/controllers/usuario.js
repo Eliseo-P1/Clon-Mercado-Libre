@@ -41,6 +41,12 @@ try{
     if(!resultadoComparacion){
         return res.status(404).json({mensaje: 'Revisa tu contraseña.'})
     }
+
+    //aca tengo que crear el token , para el inciar sesion.
+
+    
+
+
     console.log('id_usuario:',usuario.id_usuario ,'inicio sesion')
     return res.status(202).json({mensaje:'iniciando sesion'});
 

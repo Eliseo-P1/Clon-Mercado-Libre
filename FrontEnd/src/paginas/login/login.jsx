@@ -22,7 +22,8 @@ const primerSiguiente = async ()=>{
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: email})
+            body: JSON.stringify({ email: email}),
+            credentials: "include",
         })
         const informacion = await respuesta.json()
 
@@ -46,7 +47,8 @@ const entrarLogin = async ()=>{
                 'Content-Type':'application/json'
             },
             body: JSON.stringify({email:emailValor.current,
-                                 password: input2.current.value})
+                                 password: input2.current.value}),
+                                 credentials: "include",
         });
 
         const informacion = await response.json()
